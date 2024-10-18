@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editkaro Portfolio</title>
+    <style>
+        /* Global Styles */
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styles */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+            color: #ff416c;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff416c;
+        }
+
+        /* Section Styles */
+
+        section {
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        /* Home Section */
+
+        #home {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+        }
+
+        #home h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            animation: fadeInDown 2s;
+        }
+
+        #home p {
+            font-size: 20px;
+            animation: fadeInUp 2s;
+        }
+
+        /* Category Buttons */
+
+        .category-buttons {
+            margin-top: 20px;
+        }
+
+        .category-buttons button {
+            margin: 10px;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border-radius: 25px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .category-buttons button:hover {
+            background: #ff416c;
+            transform: scale(1.1);
+        }
+
+        /* Portfolio Section */
+
+        #portfolio {
+            background-color: #1a1a1a;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .video-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #2a2a2a;
+            transition: transform 0.4s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-container video,
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Contact Section */
+
+        #contact {
+            background-color: #111;
+            padding: 50px;
+        }
+
+        #contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #contact p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        #contact a {
+            color: #ff416c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Lightbox Modal */
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox video {
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Animations */
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Editkaro</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to Editkaro</h2>
+        <p>Explore our portfolio and discover our creativity!</p>
+        <div class="category-buttons">
+            <button onclick="filterVideos('all')">All</button>
+            <button onclick="filterVideos('short')">Short-Form</button>
+            <button onclick="filterVideos('long')">Long-Form</button>
+            <button onclick="filterVideos('gaming')">Gaming</button>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="video-card" data-category="short">
+                <div class="video-container" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                    <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted autoplay loop></video>
+                </div>
+                <div class="video-info">
+                    <h3>Short-Form Video</h3>
+                    <p>Quick and engaging content.</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-category="long">
+                <div class="video-container" onclick="openLightbox('https://samplelib.com/lib/preview/mp4/sample-5s.mp4')">
+                    <video src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" muted autoplay loop></video>
+                </div>
+                <div class="video-info">
+                    <h3>Long-Form Video</h3>
+                    <p>In-depth storytelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries, reach out to us at <a href="mailto:contact@editkaro.in">contact@editkaro.in</a></p>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <video id="lightbox-video" controls></video>
+    </div>
+
+    <script>
+        function filterVideos(category) {
+            const videos = document.querySelectorAll('.video-card');
+            videos.forEach(video => {
+                video.style.display = category === 'all' || video.getAttribute('data-category') === category ? 'block' : 'none';
+            });
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            lightboxVideo.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            lightboxVideo.src = '';
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
