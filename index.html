@@ -1,282 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editkaro Portfolio</title>
-    <style>
-        /* Global Styles */
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            scroll-behavior: smooth;
-        }
-
-        /* Navbar Styles */
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #111;
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar h1 {
-            font-size: 24px;
-            color: #ff416c;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #ff416c;
-        }
-
-        /* Section Styles */
-
-        section {
-            padding: 100px 30px;
-            text-align: center;
-        }
-
-        /* Home Section */
-
-        #home {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            color: white;
-        }
-
-        #home h2 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            animation: fadeInDown 2s;
-        }
-
-        #home p {
-            font-size: 20px;
-            animation: fadeInUp 2s;
-        }
-
-        /* Category Buttons */
-
-        .category-buttons {
-            margin-top: 20px;
-        }
-
-        .category-buttons button {
-            margin: 10px;
-            padding: 12px 25px;
-            border: none;
-            cursor: pointer;
-            background: #333;
-            color: white;
-            border-radius: 25px;
-            font-size: 18px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .category-buttons button:hover {
-            background: #ff416c;
-            transform: scale(1.1);
-        }
-
-        /* Portfolio Section */
-
-        #portfolio {
-            background-color: #1a1a1a;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 50px;
-        }
-
-        .video-card {
-            border-radius: 15px;
-            overflow: hidden;
-            background: #2a2a2a;
-            transition: transform 0.4s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .video-card:hover {
-            transform: scale(1.05);
-        }
-
-        .video-container {
-            height: 200px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .video-container video,
-        .video-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        /* Contact Section */
-
-        #contact {
-            background-color: #111;
-            padding: 50px;
-        }
-
-        #contact h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        #contact p {
-            font-size: 18px;
-            color: #ccc;
-        }
-
-        #contact a {
-            color: #ff416c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #contact a:hover {
-            text-decoration: underline;
-        }
-
-        /* Lightbox Modal */
-
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .lightbox video {
-            width: 80%;
-            max-width: 900px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            cursor: pointer;
-            color: white;
-        }
-
-        /* Animations */
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <meta name="description" content="Editkaro.in - Creative Video Editing and Social Media Marketing Services">
+    <meta name="keywords" content="video editing, social media marketing, video production, brand marketing">
+    <meta name="author" content="Editkaro.in">
+    <title>Editkaro.in - Transform Your Brand with Videos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
+
     <!-- Navbar -->
-    <div class="navbar">
+    <nav class="navbar">
         <h1>Editkaro</h1>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <!-- Home Section -->
-    <section id="home">
-        <h2>Welcome to Editkaro</h2>
-        <p>Explore our portfolio and discover our creativity!</p>
-        <div class="category-buttons">
-            <button onclick="filterVideos('all')">All</button>
-            <button onclick="filterVideos('short')">Short-Form</button>
-            <button onclick="filterVideos('long')">Long-Form</button>
-            <button onclick="filterVideos('gaming')">Gaming</button>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Transform Your Brand with Stunning Videos</h2>
+        <p>We provide creative video editing and social media marketing to help businesses grow.</p>
+        <form id="email-form" onsubmit="submitEmail(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <i class="fas fa-video"></i>
+                <h3>Video Editing</h3>
+                <p>High-quality video editing to match your brand’s voice and vision.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Social Media Marketing</h3>
+                <p>Grow your online presence with targeted campaigns and engaging content.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Brand Marketing</h3>
+                <p>Create impactful campaigns that resonate with your audience.</p>
+            </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio">
+        <h2>Our Portfolio</h2>
         <div class="container">
-            <div class="video-card" data-category="short">
-                <div class="video-container" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
-                    <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted autoplay loop></video>
-                </div>
-                <div class="video-info">
-                    <h3>Short-Form Video</h3>
-                    <p>Quick and engaging content.</p>
-                </div>
+            <div class="video-card" onclick="openLightbox('https://www.w3schools.com/html/mov_bbb.mp4')">
+                <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted autoplay loop></video>
+                <p>Short Form Video</p>
             </div>
+            <div class="video-card" onclick="openLightbox('https://samplelib.com/lib/preview/mp4/sample-5s.mp4')">
+                <video src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" muted autoplay loop></video>
+                <p>Long Form Video</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="video-card" data-category="long">
-                <div class="video-container" onclick="openLightbox('https://samplelib.com/lib/preview/mp4/sample-5s.mp4')">
-                    <video src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" muted autoplay loop></video>
-                </div>
-                <div class="video-info">
-                    <h3>Long-Form Video</h3>
-                    <p>In-depth storytelling.</p>
-                </div>
+    <!-- Team Section -->
+    <section id="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="member">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe">
+                <p>John Doe - Creative Director</p>
+            </div>
+            <div class="member">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith">
+                <p>Jane Smith - Marketing Head</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card">
+                <p>"Editkaro took our marketing to the next level!"</p>
+                <h4>- Happy Client</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their videos have boosted our brand engagement significantly."</p>
+                <h4>- Satisfied Customer</h4>
             </div>
         </div>
     </section>
@@ -284,8 +104,26 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>For inquiries, reach out to us at <a href="mailto:contact@editkaro.in">contact@editkaro.in</a></p>
+        <form id="contact-form" onsubmit="submitContact(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
     </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()">Top</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Editkaro.in | All Rights Reserved</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </footer>
 
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
@@ -293,28 +131,5 @@
         <video id="lightbox-video" controls></video>
     </div>
 
-    <script>
-        function filterVideos(category) {
-            const videos = document.querySelectorAll('.video-card');
-            videos.forEach(video => {
-                video.style.display = category === 'all' || video.getAttribute('data-category') === category ? 'block' : 'none';
-            });
-        }
-
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxVideo = document.getElementById('lightbox-video');
-            lightboxVideo.src = src;
-            lightbox.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxVideo = document.getElementById('lightbox-video');
-            lightboxVideo.src = '';
-            lightbox.style.display = 'none';
-        }
-    </script>
 </body>
-
 </html>
